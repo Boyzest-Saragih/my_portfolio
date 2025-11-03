@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import Navbar from "@/components/layout/Navbar";
+import ClickSpark from "@/components/ClickSpark";
+import Lanyard from "@/components/Lanyard";
+import Threads from "@/components/Threads"
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,12 +28,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        {children}
+        <ClickSpark>
+          <Navbar />
+          <section className="relative h-screen w-full overflow-hidden">
+            <Threads amplitude={1} distance={0} enableMouseInteraction={true} />
+            <div className="absolute inset-0 flex justify-between text-white">
+          {children}
+          <h1>Ayam</h1>
+                <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+
+            </div>
+          </section>
+        </ClickSpark>
       </body>
     </html>
   );
