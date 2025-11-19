@@ -34,15 +34,9 @@ export default function RootLayout({
       >
         <ClickSpark>
           <Navbar />
-          <section className="relative h-screen w-full overflow-hidden">
-            <Threads amplitude={1} distance={0} enableMouseInteraction={true} />
-            <div className="absolute inset-0 flex justify-between text-white">
-          {children}
-          <h1>Ayam</h1>
-                <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
-
-            </div>
-          </section>
+          <div className="relative">
+            {children}
+          </div>
         </ClickSpark>
       </body>
     </html>
